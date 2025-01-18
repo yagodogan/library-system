@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.util.List;
+
 @Table(name = "book")
 @Entity
 @Data
@@ -25,4 +27,8 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToMany(mappedBy = "books")
+    private List<Users> users;
+
 }
