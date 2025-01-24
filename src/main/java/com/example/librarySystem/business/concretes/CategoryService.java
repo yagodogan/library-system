@@ -7,7 +7,7 @@ import com.example.librarySystem.business.responses.GetCategoryByIdResponse;
 import com.example.librarySystem.business.abstracts.ICategoryService;
 import com.example.librarySystem.business.rules.CategoryBusinessRules;
 import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.dataAccess.abstracts.ICategoryRepository;
+import com.example.librarySystem.repositories.ICategoryRepository;
 import com.example.librarySystem.entities.Category;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;

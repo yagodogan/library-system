@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GetAuthorInfoById {
+public class GetAuthorInfoByIdResponse {
     private int id;
     private String name;
     private List<GetAllBookResponse> books;

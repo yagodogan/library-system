@@ -2,9 +2,10 @@ package com.example.librarySystem.business.concretes;
 
 import com.example.librarySystem.business.abstracts.IUserService;
 import com.example.librarySystem.business.requests.CreateUserRequest;
-import com.example.librarySystem.business.responses.GetAllUsers;
+import com.example.librarySystem.business.responses.GetAllUsersResponse;
+import com.example.librarySystem.business.responses.GetUserByIdResponse;
 import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.dataAccess.abstracts.IUserRepository;
+import com.example.librarySystem.repositories.IUserRepository;
 import com.example.librarySystem.entities.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,19 +21,25 @@ public class UserService implements IUserService {
     private IUserRepository userRepository;
 
     @Override
-    public void CreateUser(CreateUserRequest createUserRequest) {
+    public void createUser(CreateUserRequest createUserRequest) {
         Users user = this.modelMapperService.forRequest().map(createUserRequest, Users.class);
         this.userRepository.save(user);
     }
 
     @Override
-    public List<GetAllUsers> getAllUsers() {
+    public List<GetAllUsersResponse> getAllUsers() {
         List<Users> users = this.userRepository.findAll();
-        List<GetAllUsers> response = users.stream()
+        List<GetAllUsersResponse> response = users.stream()
                 .map(user -> this.modelMapperService.forResponse().
-                        map(user, GetAllUsers.class))
+                        map(user, GetAllUsersResponse.class))
                 .collect(Collectors.toList());
 
         return response;
+    }
+
+    @Override
+    public GetUserByIdResponse getUserById(int id) {
+        Users user = this.userRepository.findById(id).orElse(null);
+        return this.modelMapperService.forResponse().map(user, GetUserByIdResponse.class);
     }
 }

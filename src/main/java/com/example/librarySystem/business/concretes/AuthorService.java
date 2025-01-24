@@ -2,12 +2,12 @@ package com.example.librarySystem.business.concretes;
 
 import com.example.librarySystem.business.requests.AddAuthorRequest;
 import com.example.librarySystem.business.requests.UpdateAuthorRequest;
-import com.example.librarySystem.business.responses.GetAuthorInfoById;
+import com.example.librarySystem.business.responses.GetAuthorInfoByIdResponse;
 import com.example.librarySystem.business.responses.GetAllAuthorResponse;
 import com.example.librarySystem.business.abstracts.IAuthorService;
 import com.example.librarySystem.business.rules.AuthtorBusinessRules;
 import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.dataAccess.abstracts.IAuthorRepository;
+import com.example.librarySystem.repositories.IAuthorRepository;
 import com.example.librarySystem.entities.Author;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,10 +36,10 @@ public class AuthorService implements IAuthorService {
     }
 
     @Override
-    public GetAuthorInfoById getAuthorInfoById(int id) {
+    public GetAuthorInfoByIdResponse getAuthorInfoById(int id) {
         Author author = this.authorRepository.findById(id).orElse(null);
 
-        GetAuthorInfoById response = this.modelMapperService.forResponse().map(author, GetAuthorInfoById.class);
+        GetAuthorInfoByIdResponse response = this.modelMapperService.forResponse().map(author, GetAuthorInfoByIdResponse.class);
         return response;
 
     }
