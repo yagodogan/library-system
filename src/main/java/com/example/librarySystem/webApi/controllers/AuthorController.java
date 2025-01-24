@@ -2,7 +2,7 @@ package com.example.librarySystem.webApi.controllers;
 
 import com.example.librarySystem.business.requests.AddAuthorRequest;
 import com.example.librarySystem.business.requests.UpdateAuthorRequest;
-import com.example.librarySystem.business.responses.GetAuthorInfoById;
+import com.example.librarySystem.business.responses.GetAuthorInfoByIdResponse;
 import com.example.librarySystem.business.responses.GetAllAuthorResponse;
 import com.example.librarySystem.business.abstracts.IAuthorService;
 import jakarta.validation.Valid;
@@ -20,7 +20,7 @@ public class AuthorController {
     private IAuthorService authorService;
 
     @GetMapping("getAuthorById/{id}")
-    public GetAuthorInfoById findAuthorById(@PathVariable int id) {
+    public GetAuthorInfoByIdResponse findAuthorById(@PathVariable int id) {
         return authorService.getAuthorInfoById(id);
     }
 

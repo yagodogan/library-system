@@ -4,8 +4,10 @@ import com.example.librarySystem.business.abstracts.IBookService;
 import com.example.librarySystem.business.requests.AddBookRequest;
 import com.example.librarySystem.business.requests.UpdateBookRequest;
 import com.example.librarySystem.business.responses.GetAllBookResponse;
+import com.example.librarySystem.business.responses.GetBookByIdResponse;
+import com.example.librarySystem.core.utilities.annotation.Log;
 import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.dataAccess.abstracts.IBookRepository;
+import com.example.librarySystem.repositories.IBookRepository;
 import com.example.librarySystem.entities.Book;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -21,7 +23,6 @@ public class BookService implements IBookService {
     private IBookRepository bookRepository;
     private IModelMapperService modelMapperService;
 
-
     @Override
     public List<GetAllBookResponse> getAllBooks() {
         List<Book> books = bookRepository.findAll();
@@ -32,6 +33,13 @@ public class BookService implements IBookService {
                 .collect(Collectors.toList());
 
         return response;
+    }
+
+    @Log
+    @Override
+    public GetBookByIdResponse getBookById(int id) {
+        Book book = this.bookRepository.findById(id).orElse(null);
+        return this.modelMapperService.forResponse().map(book, GetBookByIdResponse.class);
     }
 
     @Override

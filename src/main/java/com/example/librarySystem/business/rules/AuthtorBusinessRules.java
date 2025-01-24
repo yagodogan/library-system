@@ -1,7 +1,7 @@
 package com.example.librarySystem.business.rules;
 
 import com.example.librarySystem.core.utilities.exeptions.BusinessException;
-import com.example.librarySystem.dataAccess.abstracts.IAuthorRepository;
+import com.example.librarySystem.repositories.IAuthorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

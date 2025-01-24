@@ -3,8 +3,10 @@ package com.example.librarySystem.webApi.controllers;
 
 import com.example.librarySystem.business.concretes.BookService;
 import com.example.librarySystem.business.requests.AddBookRequest;
+import com.example.librarySystem.business.requests.CreateLogRequest;
 import com.example.librarySystem.business.requests.UpdateBookRequest;
 import com.example.librarySystem.business.responses.GetAllBookResponse;
+import com.example.librarySystem.business.responses.GetBookByIdResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,11 @@ public class BookController {
     @GetMapping("getAllBooks")
     public List<GetAllBookResponse> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("getBookById={id}")
+    public GetBookByIdResponse getBookById(@PathVariable int id, CreateLogRequest createLogRequest) {
+        return this.bookService.getBookById(id);
     }
 
     @PostMapping("addBook")
