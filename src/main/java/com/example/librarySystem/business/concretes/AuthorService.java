@@ -1,14 +1,14 @@
 package com.example.librarySystem.business.concretes;
 
-import com.example.librarySystem.business.requests.AddAuthorRequest;
-import com.example.librarySystem.business.requests.UpdateAuthorRequest;
-import com.example.librarySystem.business.responses.GetAuthorInfoByIdResponse;
-import com.example.librarySystem.business.responses.GetAllAuthorResponse;
+import com.example.librarySystem.dto.request.AddAuthorRequest;
+import com.example.librarySystem.dto.request.UpdateAuthorRequest;
+import com.example.librarySystem.dto.response.GetAuthorInfoByIdResponse;
+import com.example.librarySystem.dto.response.GetAllAuthorResponse;
 import com.example.librarySystem.business.abstracts.IAuthorService;
 import com.example.librarySystem.business.rules.AuthtorBusinessRules;
-import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.repositories.IAuthorRepository;
-import com.example.librarySystem.entities.Author;
+import com.example.librarySystem.core.mapper.IModelMapperService;
+import com.example.librarySystem.repository.IAuthorRepository;
+import com.example.librarySystem.entity.Author;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +19,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AuthorService implements IAuthorService {
 
-    private IAuthorRepository authorRepository;
-    private IModelMapperService modelMapperService;
-    private AuthtorBusinessRules authtorBusinessRules;
+    private final IAuthorRepository authorRepository;
+    private final IModelMapperService modelMapperService;
+    private final AuthtorBusinessRules authtorBusinessRules;
 
 
     @Override

@@ -1,12 +1,12 @@
 package com.example.librarySystem.business.concretes;
 
 import com.example.librarySystem.business.abstracts.IUserService;
-import com.example.librarySystem.business.requests.CreateUserRequest;
-import com.example.librarySystem.business.responses.GetAllUsersResponse;
-import com.example.librarySystem.business.responses.GetUserByIdResponse;
-import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.repositories.IUserRepository;
-import com.example.librarySystem.entities.Users;
+import com.example.librarySystem.dto.request.CreateUserRequest;
+import com.example.librarySystem.dto.response.GetAllUsersResponse;
+import com.example.librarySystem.dto.response.GetUserByIdResponse;
+import com.example.librarySystem.core.mapper.IModelMapperService;
+import com.example.librarySystem.repository.IUserRepository;
+import com.example.librarySystem.entity.Users;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserService implements IUserService {
 
-    private IModelMapperService modelMapperService;
-    private IUserRepository userRepository;
+    private final IModelMapperService modelMapperService;
+    private final IUserRepository userRepository;
 
     @Override
     public void createUser(CreateUserRequest createUserRequest) {

@@ -1,9 +1,9 @@
 package com.example.librarySystem.business.abstracts;
 
 
-import com.example.librarySystem.business.requests.CreateUserRequest;
-import com.example.librarySystem.business.responses.GetAllUsersResponse;
-import com.example.librarySystem.business.responses.GetUserByIdResponse;
+import com.example.librarySystem.dto.request.CreateUserRequest;
+import com.example.librarySystem.dto.response.GetAllUsersResponse;
+import com.example.librarySystem.dto.response.GetUserByIdResponse;
 
 import java.util.List;
 

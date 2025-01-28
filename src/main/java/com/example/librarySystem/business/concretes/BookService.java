@@ -1,14 +1,14 @@
 package com.example.librarySystem.business.concretes;
 
 import com.example.librarySystem.business.abstracts.IBookService;
-import com.example.librarySystem.business.requests.AddBookRequest;
-import com.example.librarySystem.business.requests.UpdateBookRequest;
-import com.example.librarySystem.business.responses.GetAllBookResponse;
-import com.example.librarySystem.business.responses.GetBookByIdResponse;
-import com.example.librarySystem.core.utilities.annotation.Log;
-import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.repositories.IBookRepository;
-import com.example.librarySystem.entities.Book;
+import com.example.librarySystem.dto.request.AddBookRequest;
+import com.example.librarySystem.dto.request.UpdateBookRequest;
+import com.example.librarySystem.dto.response.GetAllBookResponse;
+import com.example.librarySystem.dto.response.GetBookByIdResponse;
+import com.example.librarySystem.core.annotation.Log;
+import com.example.librarySystem.core.mapper.IModelMapperService;
+import com.example.librarySystem.repository.IBookRepository;
+import com.example.librarySystem.entity.Book;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class BookService implements IBookService {
 
-    private IBookRepository bookRepository;
-    private IModelMapperService modelMapperService;
+    private final IBookRepository bookRepository;
+    private final IModelMapperService modelMapperService;
 
     @Override
     public List<GetAllBookResponse> getAllBooks() {

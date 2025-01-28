@@ -1,14 +1,14 @@
 package com.example.librarySystem.business.concretes;
 
-import com.example.librarySystem.business.requests.AddCategoryRequest;
-import com.example.librarySystem.business.requests.UpdateCategoryRequest;
-import com.example.librarySystem.business.responses.GetAllCategoryResponse;
-import com.example.librarySystem.business.responses.GetCategoryByIdResponse;
+import com.example.librarySystem.dto.request.AddCategoryRequest;
+import com.example.librarySystem.dto.request.UpdateCategoryRequest;
+import com.example.librarySystem.dto.response.GetAllCategoryResponse;
+import com.example.librarySystem.dto.response.GetCategoryByIdResponse;
 import com.example.librarySystem.business.abstracts.ICategoryService;
 import com.example.librarySystem.business.rules.CategoryBusinessRules;
-import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.repositories.ICategoryRepository;
-import com.example.librarySystem.entities.Category;
+import com.example.librarySystem.core.mapper.IModelMapperService;
+import com.example.librarySystem.repository.ICategoryRepository;
+import com.example.librarySystem.entity.Category;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CategoryService implements ICategoryService {
 
-    private IModelMapperService modelMapperService;
-    private ICategoryRepository categoryRepository;
-    private CategoryBusinessRules categoryBusinessRules;
+    private final IModelMapperService modelMapperService;
+    private final ICategoryRepository categoryRepository;
+    private final CategoryBusinessRules categoryBusinessRules;
 
     @Override
     public GetCategoryByIdResponse getCategoryInfoById(int id) {

@@ -1,10 +1,10 @@
 package com.example.librarySystem.business.concretes;
 
 import com.example.librarySystem.business.abstracts.ILogService;
-import com.example.librarySystem.business.requests.CreateLogRequest;
-import com.example.librarySystem.core.utilities.mappers.IModelMapperService;
-import com.example.librarySystem.entities.Log;
-import com.example.librarySystem.repositories.ILogRepositories;
+import com.example.librarySystem.dto.request.CreateLogRequest;
+import com.example.librarySystem.core.mapper.IModelMapperService;
+import com.example.librarySystem.entity.Log;
+import com.example.librarySystem.repository.ILogRepositories;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class LogService implements ILogService {
 
-    private ILogRepositories logRepositories;
-    private IModelMapperService modelMapperService;
+    private final ILogRepositories logRepositories;
+    private final IModelMapperService modelMapperService;
 
     @Async
     @Override
