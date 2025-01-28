@@ -1,10 +1,9 @@
 package com.example.librarySystem.business.abstracts;
 
-import com.example.librarySystem.business.requests.AddBookRequest;
-import com.example.librarySystem.business.requests.CreateLogRequest;
-import com.example.librarySystem.business.requests.UpdateBookRequest;
-import com.example.librarySystem.business.responses.GetAllBookResponse;
-import com.example.librarySystem.business.responses.GetBookByIdResponse;
+import com.example.librarySystem.dto.request.AddBookRequest;
+import com.example.librarySystem.dto.request.UpdateBookRequest;
+import com.example.librarySystem.dto.response.GetAllBookResponse;
+import com.example.librarySystem.dto.response.GetBookByIdResponse;
 
 import java.util.List;
 

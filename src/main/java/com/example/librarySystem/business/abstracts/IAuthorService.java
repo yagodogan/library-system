@@ -1,9 +1,9 @@
 package com.example.librarySystem.business.abstracts;
 
-import com.example.librarySystem.business.requests.AddAuthorRequest;
-import com.example.librarySystem.business.requests.UpdateAuthorRequest;
-import com.example.librarySystem.business.responses.GetAuthorInfoByIdResponse;
-import com.example.librarySystem.business.responses.GetAllAuthorResponse;
+import com.example.librarySystem.dto.request.AddAuthorRequest;
+import com.example.librarySystem.dto.request.UpdateAuthorRequest;
+import com.example.librarySystem.dto.response.GetAuthorInfoByIdResponse;
+import com.example.librarySystem.dto.response.GetAllAuthorResponse;
 
 import java.util.List;
 

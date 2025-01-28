@@ -1,9 +1,9 @@
 package com.example.librarySystem.business.abstracts;
 
-import com.example.librarySystem.business.requests.AddCategoryRequest;
-import com.example.librarySystem.business.requests.UpdateCategoryRequest;
-import com.example.librarySystem.business.responses.GetAllCategoryResponse;
-import com.example.librarySystem.business.responses.GetCategoryByIdResponse;
+import com.example.librarySystem.dto.request.AddCategoryRequest;
+import com.example.librarySystem.dto.request.UpdateCategoryRequest;
+import com.example.librarySystem.dto.response.GetAllCategoryResponse;
+import com.example.librarySystem.dto.response.GetCategoryByIdResponse;
 
 import java.util.List;
 
