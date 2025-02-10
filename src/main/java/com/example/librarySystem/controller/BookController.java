@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/book")
+@RequestMapping
 @AllArgsConstructor
 public class BookController {
 
     private BookService bookService;
 
-    @GetMapping("getAllBooks")
+    @GetMapping("api/auth/getAllBooks")
     public List<GetAllBookResponse> getAllBooks() {
         return bookService.getAllBooks();
     }

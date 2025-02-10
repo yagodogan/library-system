@@ -31,6 +31,6 @@ public class Book {
     private Category category;
 
     @ManyToMany(mappedBy = "books")
-    private List<Users> users;
+    private List<User> users;
 
 }

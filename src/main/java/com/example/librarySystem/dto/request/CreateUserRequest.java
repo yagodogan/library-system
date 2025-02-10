@@ -14,10 +14,10 @@ public class CreateUserRequest {
     @NotBlank
     @NotNull
     @Size(min = 2, max = 20)
-    private String userName;
+    private String username;
 
     @NotBlank
     @NotNull
     @Size(min = 2, max = 20)
-    private String userPassword;
+    private String password;
 }

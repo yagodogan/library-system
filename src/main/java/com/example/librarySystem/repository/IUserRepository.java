@@ -1,7 +1,11 @@
 package com.example.librarySystem.repository;
 
-import com.example.librarySystem.entity.Users;
+import com.example.librarySystem.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IUserRepository extends JpaRepository<Users, Integer> {
+import java.util.Optional;
+
+public interface IUserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByUsername(String username);
+    boolean existsByUsername(String username);
 }
