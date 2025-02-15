@@ -26,5 +26,7 @@ public class Log {
 
     private String methodName;
 
+    private String username;
+
     private Long execTime;
 }

@@ -12,32 +12,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/category")
+@RequestMapping("/category")
 @AllArgsConstructor
 public class CategoryController {
     private CategoryService categoryService;
 
-    @GetMapping("getCategoryById={id}")
+    @GetMapping("/getCategoryById={id}")
     public GetCategoryByIdResponse getCategory(@PathVariable int id) {
         return categoryService.getCategoryInfoById(id);
     }
 
-    @GetMapping("getAllCategories")
+    @GetMapping("/getAll")
     public List<GetAllCategoryResponse> getAllCategories() {
         return this.categoryService.getAllCategory();
     }
 
-    @PostMapping("addCategory")
+    @PostMapping("/api/auth/add")
     public void addCategory(@Valid @RequestBody AddCategoryRequest request) {
         categoryService.addCategory(request);
     }
 
-    @PutMapping("updateCategoryById={id}")
+    @PutMapping("/api/auth/updateCategoryById={id}")
     public void updateCategoryById(@PathVariable int id,@Valid @RequestBody UpdateCategoryRequest request) {
         this.categoryService.updateCategory(id, request);
     }
 
-    @DeleteMapping("deleteCategoryById={id}")
+    @DeleteMapping("/api/auth/deleteCategoryById={id}")
     public void deleteCategory(@PathVariable int id) {
         this.categoryService.deleteCategory(id);
     }
