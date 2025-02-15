@@ -14,4 +14,6 @@ public class CreateLogRequest {
     private Long execTime;
 
     private String methodName;
+
+    private String username;
 }

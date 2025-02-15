@@ -13,34 +13,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/author")
+@RequestMapping("/author")
 @AllArgsConstructor
 public class AuthorController {
 
     private IAuthorService authorService;
 
-    @GetMapping("getAuthorById/{id}")
+    @GetMapping("/getAuthorById/{id}")
     public GetAuthorInfoByIdResponse findAuthorById(@PathVariable int id) {
         return authorService.getAuthorInfoById(id);
     }
 
-    @GetMapping("getAllAuthors")
+    @GetMapping("/getAll")
     public List<GetAllAuthorResponse> getAllAuthors() {
         return authorService.getAllAuthors();
     }
 
-    @PostMapping("addAuthor")
+    @PostMapping("api/auth/add")
     @ResponseStatus(code= HttpStatus.CREATED)
     public void addAuthor(@Valid @RequestBody AddAuthorRequest addAuthorRequest) {
         this.authorService.addAuthor(addAuthorRequest);
     }
 
-    @PutMapping("updateAuthor")
+    @PutMapping("api/auth/updateAuthor")
     public void updateAuthor(@Valid @RequestBody UpdateAuthorRequest updateAuthorRequest) {
         this.authorService.updateAuthor(updateAuthorRequest);
     }
 
-    @DeleteMapping("deleteAuthor={id}")
+    @DeleteMapping("api/auth/deleteAuthor={id}")
     public void deleteAuthor(@PathVariable int id) {
         this.authorService.deleteAuthor(id);
     }

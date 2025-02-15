@@ -2,6 +2,8 @@ package com.example.librarySystem.aspect;
 
 import com.example.librarySystem.business.abstracts.ILogService;
 import com.example.librarySystem.dto.request.CreateLogRequest;
+import com.example.librarySystem.entity.User;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
     private final ILogService logService;
+    private HttpServletRequest request;
 
     @Pointcut("@annotation(com.example.librarySystem.core.annotation.Log)")
     public void logPointcut() {}
@@ -31,11 +34,13 @@ public class LoggingAspect {
 
         String methodName = joinPoint.getSignature().getName();
 
+        User user = (User) request.getAttribute("user");
+        String username = user.getUsername();
+
         CreateLogRequest createLogRequest = new CreateLogRequest();
-
         createLogRequest.setExecTime(execTime);
-
         createLogRequest.setMethodName(methodName);
+        createLogRequest.setUsername(username);
 
         logService.createLog(createLogRequest);
 
